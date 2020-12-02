@@ -211,7 +211,7 @@ class PluginApiscp extends ServerPlugin
         $client = $this->getClient($args);
 
         try {
-            $plans = $client->admin_list_plans();
+            $client->common_whoami();
         } catch (Exception $e) {
             throw new CE_Exception($e->getMessage());
         }
