@@ -170,6 +170,10 @@ class PluginApiscp extends ServerPlugin
         $actions = [];
         try {
             $response = $client->admin_collect(['siteinfo'], null, [strtolower($userPackage->getCustomField('Domain Name'))]);
+            if (count($response) == 0) {
+                $actions[] = 'Create';
+                return $actions;
+            }
             if ($response[strtolower($userPackage->getCustomField('Domain Name'))]['active'] == 1) {
                 $actions[] = 'Suspend';
             } else {
