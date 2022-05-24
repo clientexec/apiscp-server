@@ -59,6 +59,7 @@ class PluginApiscp extends ServerPlugin
 
     public function validateCredentials($args)
     {
+        return trim(strtolower($args['package']['username']));
     }
 
     public function doDelete($args)
@@ -191,7 +192,7 @@ class PluginApiscp extends ServerPlugin
         $options = [
             'siteinfo.enabled' => 1,
             'siteinfo.domain' => strtolower($args['package']['domain_name']),
-            'siteinfo.admin_user' => $args['package']['username'],
+            'siteinfo.admin_user' => strtolower($args['package']['username']),
             'siteinfo.email' => $args['customer']['email'],
             'siteinfo.plan' => $args['package']['name_on_server'],
             'auth.tpasswd' => $args['package']['password']
