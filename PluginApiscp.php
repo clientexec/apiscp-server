@@ -34,7 +34,7 @@ class PluginApiscp extends ServerPlugin
             'Actions' => [
                 'type' => 'hidden',
                 'description' => 'Current actions that are active for this plugin per server',
-                'value'=>'Create,Delete,Suspend,UnSuspend'
+                'value' => 'Create,Delete,Suspend,UnSuspend'
             ],
             'Registered Actions For Customer' => [
                 'type' => 'hidden',
@@ -257,15 +257,18 @@ class PluginApiscp extends ServerPlugin
             ];
         } elseif ($getRealLink) {
             return [
-                'link'    => '<li><a target="_blank" href="' . $url . '">' .$linkText . '</a></li>',
-                'rawlink' => $url,
+                'fa' => 'fa fa-user fa-fw',
+                'link'    => $url,
+                'text' => $linkText,
                 'form'    => ''
             ];
         } else {
-            return [
-                'link' => '<li><a target="_blank" href="index.php?fuse=clients&controller=products&action=openpackagedirectlink&packageId='.$userPackage->getId().'&sessionHash='.CE_Lib::getSessionHash().'">' .$linkText . '</a></li>',
+            return array(
+                'fa' => 'fa fa-user fa-fw',
+                'link' => 'index.php?fuse=clients&controller=products&action=openpackagedirectlink&packageId=' . $userPackage->getId() . '&sessionHash=' . CE_Lib::getSessionHash(),
+                'text' => $linkText,
                 'form' => ''
-            ];
+            );
         }
     }
 
