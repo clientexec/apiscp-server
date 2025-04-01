@@ -276,6 +276,6 @@ class PluginApiscp extends ServerPlugin
     {
         $userPackage = new UserPackage($args['userPackageId']);
         $response = $this->getDirectLink($userPackage, true);
-        return $response['rawlink'];
+        return $response['link'];
     }
 }
